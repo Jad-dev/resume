@@ -25,11 +25,12 @@
 <div class="stars" id="stars"></div>
 <script>
 (function(){
+ const masterpieceSource='https://raw.githubusercontent.com/Jad-dev/FlippingBook/main/museum-of-her/masterpiece-data.txt';
  const sources={
-  dressPhoto:'dress-data.txt?v=2',
+  dressPhoto:masterpieceSource,
   momentPhoto:'moment-data.txt?v=2',
   smilePhoto:'https://raw.githubusercontent.com/Jad-dev/FlippingBook/main/museum-of-her/smile-data.txt',
-  masterpiecePhoto:'https://raw.githubusercontent.com/Jad-dev/FlippingBook/main/museum-of-her/masterpiece-data.txt'
+  masterpiecePhoto:masterpieceSource
  };
  Object.entries(sources).forEach(([id,url])=>fetch(url,{cache:'no-store'}).then(r=>r.text()).then(b64=>{document.getElementById(id).src='data:image/jpeg;base64,'+b64.trim()}).catch(()=>{}));
  const ratingBtn=document.getElementById('ratingBtn');
